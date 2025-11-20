@@ -1,7 +1,8 @@
 // ============================
 //  ESTADO GLOBAL
 // ============================
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'http://91.99.200.199:3000';
+
 let carrito = JSON.parse(window.localStorage.getItem('carrito') || '[]');
 let productosCache = null;       // para frontend (fruites/verdures/altres)
 let adminProductos = [];         // para panel admin
