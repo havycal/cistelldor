@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1763403335668,
+    "fecha": "17/11/2025, 19:15:35",
+    "nombre": "javier",
+    "telefono": "607792884",
+    "pago": "tarjeta",
+    "notes": "",
+    "carrito": [
+      {
+        "id": 1763402354704,
+        "nombre": "Royal Gala",
+        "precioKg": 1.49,
+        "kg": 0.5
+      }
+    ]
+  }
+]

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISTELL D'OR</title>
+  <link rel="icon" type="image/png" href="./assets/cesta de fruta1.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Audiowide&family=Cairo+Play:slnt,wght@3,700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rock+Salt&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Cistell d'or</h1>
+    </div>
+     
+    <p>Fruites i verdures fresques</p>
+            
+    <nav>
+      <ul>
+        <li><button data-page="about">Qui som</button></li>
+        <li><button data-page="fruits">Fruites</button></li>
+        <li><button data-page="vegetables">Verdures</button></li>
+        <li><button data-page="products">Altres productes</button></li>
+        <li><button data-page="contact">Contacte</button></li>
+        <!-- NUEVO: botón para el panel de administración -->
+        <li id="admin-btn" style="display:none;"><button data-page="admin">Admin</button></li>
+        <li id="admin-logout" style="display:none;"> <button id="btn-logout-admin">Tancar Sessió</button></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main id="main-content">
+    <!-- el contenido se cargará aquí -->
+  </main>
+
+  <footer>
+    <section>
+      <h2>Contacte</h2>
+      <p>Per a encàrrecs personalitzats, ens pots trobar o contactar al.</p>
+      <p><strong>Adreça:</strong> Av/ Mistral 24 local 2</p>
+      <p><strong>Telèfon:</strong> 123456789</p>
+      <p><strong>Correu:</strong> mail@.com</p>
+      <nav>
+        <ul class="redes">
+          <li><button href="#" class="fab fa-facebook-f"> </button></li>
+          <li><button href="#" class="fab fa-twitter"> </button></li>
+          <li><button href="#" class="fab fa-instagram"></button></li>
+          <li><button href="#" class="fab fa-whatsapp"> </button></li>
+          <li><button href="#" class="fab fa-tiktok"></button></li>
+        </ul>
+      </nav>
+    </section>
+    <p>© 2025 CISTELL D'OR — Fruteria d'abundància i frescor</p>
+  </footer>
+
+  <script src="./JS/app.js"></script>
+</body>
+</html>

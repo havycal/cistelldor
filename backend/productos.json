@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1763402354704,
+    "nombre": "Royal Gala",
+    "categoria": "fruita",
+    "precioKg": 1.49,
+    "stock": 30,
+    "imagen": "./assets/frutas/cestamanzana.png",
+    "descripcion": "oringen girona",
+    "subcategoria": "manzanas"
+  },
+  {
+    "id": 1763467461703,
+    "nombre": "Naranja de mesa",
+    "categoria": "fruita",
+    "precioKg": 2.99,
+    "stock": 30,
+    "imagen": "./assets/frutas/cestacitricos.png",
+    "descripcion": "Naranja Valenciana de mesa con pepa",
+    "subcategoria": "citrics"
+  },
+  {
+    "id": 1763467759589,
+    "nombre": "Pera conferencia",
+    "categoria": "fruita",
+    "precioKg": 2.49,
+    "stock": 30,
+    "imagen": "./assets/frutas/cestauva.png",
+    "descripcion": "Origen Girona",
+    "subcategoria": "peras"
+  },
+  {
+    "id": 1763467907796,
+    "nombre": "Platano Canario",
+    "categoria": "fruita",
+    "precioKg": 2.2,
+    "stock": 30,
+    "imagen": "./assets/frutas/platanoBanana/platanocanarias.png",
+    "descripcion": "Origen Canarias",
+    "subcategoria": "platanos"
+  }
+]
