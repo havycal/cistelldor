@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <hr>
   <section>
     <h1>Uvas</h1>
-    <img src="./assets/frutas/cestauva.png" class="productos">
+   <img src="./assets/frutas/uvas/cestauva.png" alt="">
   </section>
   <hr>
   <section>
