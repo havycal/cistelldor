@@ -1,5 +1,5 @@
 // ============================
-//  ESTADO GLOBAL
+//  CONFIGURACIÓN BASE
 // ============================
 const API_BASE = 'http://91.99.200.199:3000';
 
@@ -10,10 +10,13 @@ let adminProductos = [];         // para panel admin
 document.addEventListener('DOMContentLoaded', function() {
   const mainContent = document.getElementById('main-content');
 
-  // --- CONTENIDO ESTÁTICO BÁSICO ---
+  // ============================
+  //  CONTENIDO ESTÁTICO
+  //  (usa assets/static/frutas/)
+  // ============================
   const aboutContent = `
     <section class="about">
-      <img src="./assets/cesta de fruta1.png" alt="Logo Cistell d'Or" class="cistell" />
+      <img src="./assets/static/frutas/cesta de fruta1.png" alt="Logo Cistell d'Or" class="cistell" />
       <h2>Qui som</h2>
       <p>Som una fruteria familiar dedicada a oferir productes frescos, locals i de temporada. Creiem en la qualitat natural i en l’abundància que la terra ens regala.</p>
     </section>
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <section>
       <a href="#" data-page="fruits">
-        <img src="./assets/cestafrutas.png" alt="" class="productos">
+        <img src="./assets/static/frutas/cestafrutas.png" alt="" class="productos">
       </a>
       <h2>Fruites</h2>
       <p>Gaudeix de la nostra selecció de fruites madures, dolces i plenes de color. Sempre fresques i de proximitat.</p>
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <section>
       <a href="#" data-page="vegetables">
-        <img src="./assets/cestaverdura.png" alt="" class="productos">
+        <img src="./assets/static/frutas/cestaverdura.png" alt="" class="productos">
       </a>
       <h2>Verdures</h2>
       <p>Verdures tendres, naturals i recollides amb cura per mantenir el seu sabor i valor nutritiu.</p>
@@ -44,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <section>
       <a href="#" data-page="products">
-        <img src="./assets/cestaproductovarios.png" alt="" class="productos">
+        <img src="./assets/static/frutas/cestaproductovarios.png" alt="" class="productos">
       </a>
       <h2>Altres Productes</h2>
       <p>A més de fruites i verdures, oferim melmelades, fruits secs, sucs naturals i productes d’artesania local.</p>
@@ -53,37 +56,36 @@ document.addEventListener('DOMContentLoaded', function() {
   `;
 
   const fruitsStatic = `
-  <section>
-    <h1>Manzanas</h1>
-    <img src="./assets/frutas/cestamanzana.png" class="productos">
-  </section>
-  <hr>
-  <section>
-    <h1>Peras</h1>
-    <img src="./assets/frutas/cestaperas.png" class="productos">
-  </section>
-  <hr>
-  <section>
-    <h1>Citricos</h1>
-    <img src="./assets/frutas/cestacitricos.png" class="productos">
-  </section>
-  <hr>
-  <section>
-    <h1>Platano y Banana</h1>
-    <img src="./assets/frutas/cestaplatano.png" alt=" class="productos">
-  </section>
-  <hr>
-  <section>
-    <h1>Uvas</h1>
-   <img src="./assets/frutas/uvas/cestauva.png" alt="">
-  </section>
-  <hr>
-  <section>
-    <h1>Kiwis</h1>
-    <img src="./assets/frutas/cestakiwi.png" class="productos">
-  </section>
-`;
-
+    <section>
+      <h1>Manzanas</h1>
+      <img src="./assets/static/frutas/cestamanzana.png" class="productos">
+    </section>
+    <hr>
+    <section>
+      <h1>Peras</h1>
+      <img src="./assets/static/frutas/cestaperas.png" class="productos">
+    </section>
+    <hr>
+    <section>
+      <h1>Citricos</h1>
+      <img src="./assets/static/frutas/cestacitricos.png" class="productos">
+    </section>
+    <hr>
+    <section>
+      <h1>Platano y Banana</h1>
+      <img src="./assets/static/frutas/cestaplatano.png" class="productos">
+    </section>
+    <hr>
+    <section>
+      <h1>Uvas</h1>
+      <img src="./assets/static/frutas/uvas/cestauva.png" class="productos">
+    </section>
+    <hr>
+    <section>
+      <h1>Kiwis</h1>
+      <img src="./assets/static/frutas/cestakiwi.png" class="productos">
+    </section>
+  `;
 
   const vegetablesStatic = `
     <section>
@@ -146,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </label><br>
 
         <label>Ruta imatge (opcional)<br>
-          <input type="text" id="product-imagen" placeholder="./assets/...">
+          <input type="text" id="product-imagen" placeholder="./assets/productos/nom-arxiu.png">
         </label><br>
 
         <label>Descripció<br>
@@ -159,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
   `;
 
-  // Checkout: se genera con función porque depende del carrito
+  // Checkout dinámico
   function checkoutContent() {
     if (!carrito || carrito.length === 0) {
       return `
@@ -398,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       adminProductos = data;
-      productosCache = data; // mantenim coherència amb frontend
+      productosCache = data;
 
       const cardsHtml = data.map(p => `
         <article class="admin-product-card" data-product-id="${p.id}">
@@ -607,7 +609,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Buscar si ja existeix al cistell
     const existent = carrito.find(item => item.id === id);
     if (existent) {
       existent.kg += kg;
@@ -695,7 +696,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("keydown", (e) => {
     if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "a") {
       const clave = prompt("Introdueix la clau secreta:");
-      if (clave === "cistell123") { // ← CAMBIA AQUÍ TU CLAVE
+      if (clave === "cistell123") { // ← CAMBIA AQUÍ LA TEVA CLAU
         alert("Mode administrador activat");
         localStorage.setItem("adminUnlocked", "true");
         mostrarAdmin();
@@ -709,7 +710,6 @@ document.addEventListener('DOMContentLoaded', function() {
   //  NAVEGACIÓN SPA
   // ============================
   function loadPage(page) {
-    // Subpàgines de subcategoria: "subcat:fruita:manzanas"
     if (page && page.startsWith('subcat:')) {
       const parts = page.split(':');
       const categoria = parts[1];
@@ -759,9 +759,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (page === 'checkout') initCheckout();
   }
 
-  // Delegación de clics global:
+  // Delegación de clics global
   document.addEventListener('click', (e) => {
-    // Navegación por data-page
     const pageTarget = e.target.closest('[data-page]');
     if (pageTarget) {
       e.preventDefault();
@@ -770,7 +769,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Acciones Admin
     const adminTarget = e.target.closest('[data-admin-action]');
     if (adminTarget) {
       e.preventDefault();
@@ -778,7 +776,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Logout admin
     if (e.target.id === 'btn-logout-admin') {
       e.preventDefault();
       const confirmar = confirm("Segur que vols tancar la sessió d'administrador?");
@@ -789,7 +786,6 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Afegir al cistell
     const addBtn = e.target.closest('[data-action="add-to-cart"]');
     if (addBtn) {
       e.preventDefault();
@@ -801,3 +797,4 @@ document.addEventListener('DOMContentLoaded', function() {
   // Carga inicial
   loadPage('about');
 });
+
