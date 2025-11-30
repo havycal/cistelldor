@@ -30,7 +30,7 @@ body {
 /* ---------------- HEADER ---------------- */
 /*  HEADER CON FONDO E IMAGEN */
 header {
-  position: sticky;
+ /* position: sticky;*/
   top: 0;/*Necesario para que se pegue al hacer scroll */
   width: 100%;
   min-height: 250px;
